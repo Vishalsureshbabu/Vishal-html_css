@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project-1(ON OFF)</title>
+    <style>
+        body{
+            background: white;
+            color: black;
+        }
+        h1{
+            text-align: center;
+        }
+        #img-div{
+            margin: auto;
+            height: 250px;
+            width: 150px;
+        }
+        button{
+            height:50px;
+            width: 70px;
+            background: black;
+            color: white;
+            border-radius: 20px;
+            font-size: x-large;
+            font-weight: bold;
+        }
+        #btn_div{
+            margin:auto;
+            width: 200px;
+            display: flex;
+            justify-content: space-between;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Can we a basic js Project???</h1>
+    <div id="img-div">
+        <img src="./bulb 2.jpeg" alt="" id="image">
+    </div>
+    <div>
+        <button type="submit"onclick="bulbON()">ON</button>
+        <button type="submit"onclick="bulbOFF()">OFF</button>
+    </div>
+</body>
+<script>
+    function bulbON(){
+        document.getElementById("image").src = "./bulb1.jpeg";
+
+    }
+    function bulbOFF(){
+        document.getElementById("image").src = "./bulb 2.jpeg";
+    }
+</script>
+</html>
