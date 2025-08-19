@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY CAR</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: bisque;
+            color:white                                                                                   ;
+        }
+        header{
+            background-color: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            background-image: url(car\ a4.jpg);
+            background-size: cover;
+            background-position: center;
+            height:100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        header h1{
+            font-size: 3rem;
+            background:rgb(0,0,0,0,4);
+            padding: 20px;
+            border-radius: 10px;
+        
+        }
+        nav{
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            gap:20px;
+            padding: 15px;
+        }
+        nav a{
+            color:yellow;
+            border: none;
+            text-decoration: none;
+            padding: 20px;
+            font-weight: bolder;
+            transform: color 0.5s;
+        }
+        nav a:hover{
+            color: aquamarine;
+        }
+        section{
+            padding: 60px;
+        }
+        .specs{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            background-color: white;
+        }
+        .specs-1{
+            background:black;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.9);
+            padding: 10px;
+            margin: 15px;
+            width:200px;
+
+        }
+        .gallery{
+            display: flex;
+            justify-content: center;
+            gap:20px;
+        }
+        .gallery img:hover{
+            transform:scale(1.2) ;
+        }
+        iframe{
+            width: 75px;
+            heigth: 300px;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#cars">cars</a>
+        <a href="#spaces">Specification</a>
+        <a href="#about">About</a>
+        <a href="video">video</a>
+        <a href="#contact">Contact us</a>
+    </nav>
+    <header>
+        <h1>Welcome to vishal cars</h1>
+    </header>
+    <section id="specs" class="specs">
+        <div class="specs-1">
+        <h3>audiA4 </h3>
+        <p>Engine:1978CC</p>
+        <p>Horsepower: 90HP</p>
+       <p>Top Speed: 300km/hr</p>
+       </div>
+       <div class="specs-1">
+       <h3>audiQ4 </h3>
+        <p>Engine:1978CC</p>
+        <p>Horsepower: 90HP</p>
+       <p>Top Speed: 300km/hr</p>
+    </div>
+    <div class="specs-1">
+         <h3>audiQ3 </h3>
+        <p>Engine:1978CC</p>
+        <p>Horsepower: 90HP</p>
+       <p>Top Speed: 300km/hr</p>
+
+    </div>
+       
+    </section>
+    <section id="cars" class="gallery">
+        <img src="car a4.jpg"alt="car 1">
+        <img src="car Q4.jpeg"alt="car 2">
+        <img src="carQ3.jpeg"alt="car 3">
+    </section>
+
+    <section id="video"class="video">
+
+    </section>
+</body>
+</html>

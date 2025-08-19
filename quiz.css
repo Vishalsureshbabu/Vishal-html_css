@@ -1,0 +1,195 @@
+/* ========== Base & Layout ========== */
+:root{
+  --bg: #0b0f14;
+  --card: #121923;
+  --muted: #8ea1b2;
+  --text: #eaf2ff;
+  --ok: #1fd975;
+  --bad: #ff6b6b;
+  --ring: #2b3a4a;
+  --accent: #66b3ff;
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; }
+body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 10% -10%, #14314e55, transparent) var(--bg);
+  color: var(--text);
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.wrap{
+  max-width: 840px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.topbar{
+  display:grid;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+h1{
+  margin:0 0 2px;
+  font-size: clamp(1.4rem, 2vw + 1rem, 2rem);
+  letter-spacing:.2px;
+}
+
+.tagline{
+  margin:0;
+  color: var(--muted);
+}
+
+/* ========== Score (CSS counters) ========== */
+.quiz{
+  /* reset counters: total questions + score */
+  counter-reset: total score;
+  display:grid;
+  gap: 16px;
+}
+
+/* Every question increments total by 1 */
+.question{ counter-increment: total; }
+
+/* When the correct radio is selected, increment score */
+.question:has(input.correct:checked){ counter-increment: score; }
+
+.score{
+  display:inline-block;
+  padding: 8px 12px;
+  border: 1px solid var(--ring);
+  border-radius: 12px;
+  background: linear-gradient(180deg, #101720, #0e141d);
+  font-weight: 600;
+}
+.score::after{
+  content: " — " counter(score) " / " counter(total);
+}
+
+/* ========== Question Card ========== */
+.question{
+  border: 1px solid var(--ring);
+  border-radius: 16px;
+  padding: 14px;
+  background: linear-gradient(180deg, #101720, #0f1620);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  display:grid;
+  gap: 8px;
+  position: relative;
+}
+
+.question legend{
+  font-weight: 650;
+  padding: 0 0 8px 0;
+  color: #e7f1ff;
+}
+
+/* Hide native radios, we’ll style labels as options */
+.question input[type="radio"]{
+  position:absolute;
+  opacity:0;
+  pointer-events:none;
+}
+
+/* Option labels */
+.question label{
+  display:block;
+  width:100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border:1px solid transparent;
+  background:#0e1520;
+  cursor:pointer;
+  transition: transform .05s ease, background .2s ease, border-color .2s ease;
+  user-select:none;
+}
+
+/* Hover / focus styles */
+.question label:hover{ transform: translateY(-1px); }
+.question label:focus-within{ outline:2px solid var(--accent); }
+
+/* Selected wrong option turns red; selected correct turns green */
+.question input[type="radio"]:checked + label{
+  border-color: #2d3b4c;
+  background: #0b121b;
+}
+
+.question input[type="radio"]:checked + label.correct-label{
+  border-color: color-mix(in oklab, var(--ok), #ffffff 30%);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--ok), #000 20%) inset;
+}
+
+.question input[type="radio"]:checked + label:not(.correct-label){
+  border-color: color-mix(in oklab, var(--bad), #ffffff 30%);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--bad), #000 20%) inset;
+}
+
+/* ========== Per-question feedback using :has() ========== */
+.status{
+  font-weight:600;
+  padding: 6px 10px;
+  border-radius: 10px;
+  width:max-content;
+  max-width:100%;
+  white-space:nowrap;
+  display:none; /* default hidden until an answer is picked */
+}
+
+.question:has(input[type="radio"]:checked) .status{ display:inline-block; }
+
+.question:has(input.correct:checked) .status{
+  background: color-mix(in oklab, var(--ok), #000 80%);
+  border: 1px solid color-mix(in oklab, var(--ok), #000 40%);
+  color: var(--ok);
+}
+.question:has(input.correct:checked) .status::before{ content:"✅ Correct!"; }
+
+.question:has(input[type="radio"]:checked):not(:has(input.correct:checked)) .status{
+  background: color-mix(in oklab, var(--bad), #000 85%);
+  border: 1px solid color-mix(in oklab, var(--bad), #000 40%);
+  color: var(--bad);
+}
+.question:has(input[type="radio"]:checked):not(:has(input.correct:checked)) .status::before{
+  content:"❌ Try again";
+}
+
+/* ========== Actions ========== */
+.actions{
+  display:flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.btn{
+  appearance:none;
+  border:1px solid var(--ring);
+  background:#0e1621;
+  color:var(--text);
+  padding:10px 14px;
+  border-radius: 12px;
+  font-weight:600;
+  cursor:pointer;
+}
+.btn:hover{ filter:brightness(1.08); }
+.btn:active{ transform: translateY(1px); }
+
+/* ========== Footer ========== */
+.credits{
+  margin-top: 20px;
+  color: var(--muted);
+  text-align:center;
+}
+
+/* ========== Accessibility niceties ========== */
+.question label:has(+ input[type="radio"]:checked),
+.question label:has(+ input.correct:checked){
+  /* nothing; example shows :has chaining works in modern browsers */
+}
+
+/* Responsive tweaks */
+@media (max-width: 520px){
+  .wrap{ margin: 24px auto; }
+  .question{ padding: 12px; }
+}
+

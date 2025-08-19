@@ -1,0 +1,26 @@
+form{
+    border: solid black 2px;
+    width:400px;
+    height:300px;
+    text-align:center;
+    padding: 3px;
+    background-color: bisque;
+    border-radius: 20px;
+    box-shadow: inset -4px -4px;
+    margin-left: 600px;
+    margin-top: 30px;
+}
+.box{
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+}
+.eat{
+    width: 400%;
+}
+p{
+    align-items: justify;
+}
+body{
+    background-image: url("vv.jpeg");
+}

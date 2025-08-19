@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSS-Only Quiz App</title>
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="topbar">
+      <h1>General Knowledge Quiz</h1>
+      <p class="tagline">Pick an option for each question. Your score updates instantly.</p>
+      <div class="score" aria-live="polite">Score</div>
+    </header>
+
+    <form class="quiz" aria-describedby="helper">
+      <!-- Q1 -->
+      <fieldset class="question">
+        <legend>1) Which planet is known as the “Red Planet”?</legend>
+
+        <input id="q1a" type="radio" name="q1" />
+        <label for="q1a">Venus</label>
+
+        <input id="q1b" type="radio" name="q1" class="correct" />
+        <label for="q1b" class="correct-label">Mars</label>
+
+        <input id="q1c" type="radio" name="q1" />
+        <label for="q1c">Jupiter</label>
+
+        <div class="status" aria-hidden="true"></div>
+      </fieldset>
+
+      <!-- Q2 -->
+      <fieldset class="question">
+        <legend>2) What is the capital of France?</legend>
+
+        <input id="q2a" type="radio" name="q2" class="correct" />
+        <label for="q2a" class="correct-label">Paris</label>
+
+        <input id="q2b" type="radio" name="q2" />
+        <label for="q2b">Lyon</label>
+
+        <input id="q2c" type="radio" name="q2" />
+        <label for="q2c">Marseille</label>
+
+        <div class="status" aria-hidden="true"></div>
+      </fieldset>
+
+      <!-- Q3 -->
+      <fieldset class="question">
+        <legend>3) Which of these is a prime number?</legend>
+
+        <input id="q3a" type="radio" name="q3" />
+        <label for="q3a">21</label>
+
+        <input id="q3b" type="radio" name="q3" class="correct" />
+        <label for="q3b" class="correct-label">29</label>
+
+        <input id="q3c" type="radio" name="q3" />
+        <label for="q3c">35</label>
+
+        <div class="status" aria-hidden="true"></div>
+      </fieldset>
+
+      <div class="actions">
+        <button type="reset" class="btn">Reset</button>
+      </div>
+
+      <p id="helper" class="helper">
+        Tip: You’ll see “Correct!” or “Try again” under each question after picking an option.
+      </p>
+    </form>
+
+    <footer class="credits">
+      <small>CSS-only logic using <code>:has()</code> and counters. Works best in up-to-date browsers.</small>
+    </footer>
+  </main>
+</body>
+</html>

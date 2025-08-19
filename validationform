@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background:fixed;
+            background:violet;
+        }
+        form{
+            width:400px;
+            margin:20vh auto;
+            background-color: antiquewhite;
+            border-radius: 10px;
+            padding: 30px;
+        }
+        h1{
+            text-align:center;
+            color:blue;
+            margin-top: 10px;
+        }
+        #form button{
+            background-color: red;
+            color: white;
+            padding: 10px;
+            margin:20px 0;
+            width: 200px;
+            border:1px solid black;
+            font-size: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+
+        }
+        .input-group{
+            display:flex;
+            flex-direction: column;
+             margin-top: 20px;
+
+
+        }
+        .input-group input{
+          border-radius: 5px;
+          font-size: 20px;
+          margin-top: 20px;
+          border:  none;
+          padding: 5px;
+          
+
+        }
+        .input-group input:focus{
+            outline: 0px;
+        }
+        .input-group .msg{
+            color: red;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+        .input-group.success input{
+            border: green;
+            
+
+
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action=""id="form">
+            <h1>Registration Form</h1>
+
+            <div class="input-group">
+                <input type="text"id="username"name="name"placeholder="Enter user Name">
+                <div class="msg"></div>
+            </div>
+
+            <div class="input-group">
+                <input type="email"id="email"name="name"placeholder="Enter Email">
+                <div class="msg"></div>
+
+                </div>
+
+                <div class="input-group">
+                    <input type="password"id="password"name="password"placeholder="Enter Password">
+                <div class="msg"></div>
+
+                </div>
+
+                <div class="input-group">
+                    <input type="cpassword"id="cpassword"name="cpassword"placeholder="Enter confirm password">
+                <div class="msg"></div>
+
+                </div>
+
+                <button type="submit">submit</button>
+
+
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    
+</body>
+<script src="form.js">
+
+</script>
+</html>
